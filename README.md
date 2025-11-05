@@ -9,11 +9,3 @@ Run directly with the module:
 ```bash
 python -m httpstatus 200
 ```
-
-Or run the script after installing the package in editable mode:
-
-```bash
-# Using a virtual environment (recommended)
-pip install -e .
-httpstatus 404
-```
