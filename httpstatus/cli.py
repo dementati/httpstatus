@@ -6,6 +6,8 @@ import argparse
 import sys
 from http import HTTPStatus
 
+import llm_cli
+
 
 def main(argv: list[str] | None = None) -> None:
     """Entry point for the CLI.
@@ -37,10 +39,17 @@ def main(argv: list[str] | None = None) -> None:
     # Newer Python versions expose a longer `.description`; fall back to phrase.
     description = getattr(status, "description", "") or status.phrase
 
+    details = llm_cli.query_llm(
+        "You are a helpful assistant.",
+        f"Provide a brief description for HTTP status code {status.value} - {status.phrase}.",
+    )
+
     print(f"{status.value} {status.phrase}")
     if description:
         print()
         print(description)
+        print()
+        print(details)
 
 
 if __name__ == "__main__":

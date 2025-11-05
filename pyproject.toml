@@ -4,8 +4,13 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "llm-cli",
+]
 
 [project.scripts]
 httpstatus = "httpstatus.cli:main"
+
+[tool.uv.sources]
+llm-cli = { git = "https://github.com/dementati/llm-cli", rev = "41d396b9a3a0a0c94e8e429e3b409a5c3299bb7a" }
 
